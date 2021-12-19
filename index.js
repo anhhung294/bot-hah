@@ -8,18 +8,16 @@ var prefix='ah';
 const commandFiles = fs.readdirSync('./commands/').filter(file => file.endsWith('.js'));
 //program
 client.commands = new Discord.Collection();
-for(const file of commandFiles){
+commandFiles.forEach(file => {
   const command = require(`./commands/${file}`);
   client.commands.set(command.name, command);
-}
+});
 client.on('message', (msg)=>{
   const args = msg.content.slice(prefix.length).split(/ +/);
   const inputCommand = args.shift();
-  if(msg.content.startsWith(prefix)||msg.author.bot) return;
-  if(!client.commands.get(inputCommand)) return;
-  else{
-    client.commands.get(inputCommand).excecute(client, msg, args);
-  }
+  if(!msg.content.startsWith(prefix)||msg.author.bot)return;
+  if(!client.commands.get(inputCommand)) return message.channel.send('Error!');
+  client.commands.get(inputCommand).excecute(client, msg, args);
 })
 
 client.once('ready', () =>{

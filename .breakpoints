@@ -1,11 +1,11 @@
 {
   "files": {
-    "index.js": [
+    "commands/quote.js": [
       {
-        "id": "b4d6f561-3080-4387-a684-d61629fa246f",
-        "line": 14,
-        "version": 317,
-        "index": 400
+        "id": "ec29340c-011f-4b24-84dd-9ffca43007c9",
+        "line": 15,
+        "version": 1097,
+        "index": 396
       }
     ]
   }
