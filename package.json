@@ -1,18 +1,26 @@
 {
-  "name": "HAH-Bot",
+  "name": "bot-hah",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
+  "author": "AnhHung",
   "license": "ISC",
   "dependencies": {
     "discord.js": "^13.3.1",
     "discord.js-12": "^1.0.2",
     "images-scraper": "^6.4.0",
     "node": "^17.3.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anhhung294/bot-hah.git"
+  },
+  "bugs": {
+    "url": "https://github.com/anhhung294/bot-hah/issues"
+  },
+  "homepage": "https://github.com/anhhung294/bot-hah#readme",
+  "description": ""
 }
