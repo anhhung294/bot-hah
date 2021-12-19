@@ -18,7 +18,7 @@ client.on('message', (msg)=>{
   if(!msg.content.startsWith(prefix)||msg.author.bot)return;
   if(!client.commands.get(inputCommand)) return message.channel.send('Error!');
   client.commands.get(inputCommand).excecute(client, msg, args);
-})
+});
 
 client.once('ready', () =>{
     console.log(`Logged in as ${client.user.tag}`);
