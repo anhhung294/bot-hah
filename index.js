@@ -1,6 +1,7 @@
 //require
 const Discord = require('discord.js-12');
 const client = new Discord.Client();
+require('dotenv').config();
 const fs = require('fs');
 //variant
 const token = process.env.TOKEN;
@@ -17,7 +18,7 @@ client.on('message', (msg)=>{
   const inputCommand = args.shift();
   if(!msg.content.startsWith(prefix)||msg.author.bot)return;
   if(!client.commands.get(inputCommand)) return message.channel.send('Error!');
-  client.commands.get(inputCommand).excecute(client, msg, args);
+  client.commands.get(inputCommand).execute(client, msg, args);
 });
 
 client.once('ready', () =>{
