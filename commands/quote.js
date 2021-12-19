@@ -1,25 +1,26 @@
+//jshint esversion: 8
 const https = require('https');
-const url = 'https://quotes.rest/quote/random?language=en&limit=1';
-  
+const url = 'https://api.quotable.io/random';
+//get quote
 const getQuote = url =>{
   return new Promise((resolve, reject)=>{
      https.get(url, (response)=>{
          response.on('data', (data)=>{
-             const jsonData =JSON.parse(data);
-             if(jsonData.contents){
-              resolve(jsonData.contents.quotes[0].quote)
-             }else{
-              reject(jsonData.error.message);
-             }
+           const jsonData = JSON.parse(data);
+           resolve([jsonData.content, jsonData.author]);
          });
      });
   });
 };
 module.exports={
   name: 'quote',
-  excecute: async function(client, message, args){
-    let quote = await getQuote(url);
-    message.channel.send(quote);
+  execute: async function(client, message, args){
+    try{
+      let quote = await getQuote(url);
+      message.channel.send(`${quote[0]} \n --${quote[1]}--`);
+    }catch(error){
+      console.log(error);
+    }
   }
-}
+};
     
