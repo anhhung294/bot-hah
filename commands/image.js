@@ -1,17 +1,18 @@
-const Scraper = require('images-scraper');
+//jshint esversion: 8
+var Scraper = require('images-scraper');
+//google
 const google = new Scraper({
   puppeteer:{
     headless: true
-  }
-})
+  },
+});
 module.exports={
   name: 'image',
-  excecute: async function(client, message, args){
-    //let num = typeof(args[args.length-1])==='number'?args.pop():1;
+  execute: async function(client, message, args){
+    let num = /[0-9]/g.test(args[0])?args.shift():1;
     let imageQuery = args.join(' ');
     if(!imageQuery) return message.channel.send('Please enter an image name!');
-    const imageResult = await google.scrape(imageQuery, 1);
-    //imageResult.forEach(item => message.channel.send(item));
-    message.channel.send(imageResult[0].url);
+    const imageResult = await google.scrape(imageQuery, num);
+    imageResult.forEach(item => message.channel.send(item.url));
   }
-}
+};
