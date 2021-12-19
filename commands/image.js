@@ -1,9 +1,11 @@
 //jshint esversion: 8
 var Scraper = require('images-scraper');
+puppeteer.launch({ args: ['--no-sandbox'] });
 //google
 const google = new Scraper({
   puppeteer:{
-    headless: true
+    headless: true,
+    args: ['--no-sandbox']
   },
 });
 module.exports={
