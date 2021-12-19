@@ -1,0 +1,17 @@
+{
+  "name": "HAH-Bot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^13.3.1",
+    "discord.js-12": "^1.0.2",
+    "node": "^17.3.0"
+  }
+}
