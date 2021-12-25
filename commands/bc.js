@@ -12,6 +12,13 @@ module.exports={
             status=  true;
             message.channel.send('Tro choi bat dau');
             return;
+        }else if(args[0] ==='get'){
+            if(!usersMoney.get(userID)>0){
+                usersMoney.set(userID, 2004);
+                message.channel.send('Ban duoc cong 2004');
+            }else{
+                message.channel.send("Ban van con tien ma :))");
+            }
         }else if(args[0]==='end'){
             status=false;
             let playersBag = new Map();
@@ -51,15 +58,8 @@ module.exports={
         }else if(status ===false){
             message.channel.send('Vui long bat dau tro choi!');
             return;
-        }else if(args[0] ==='get'){
-            if(Number(usersMoney.get(userID))===0){
-                let money = Number(usersMoney.get(playerID)) + 2004;
-                usersMoney.set(playerID, money);
-            }else{
-                message.channel.send("Ban van con tien ma :))");
-            }
         }
-        if(!/[0-9]/g.test(args[0])) return message.channel.send('Invalid command');
+        if(!/[0-9]/g.test(args[0])&&status===true) return message.channel.send('Invalid command');
         if(!usersMoney.get(userID)) usersMoney.set(userID, 0);
         let bet = `${args[1]} ${args[0]}`;
         if(!moneyBox.get(userID)){
