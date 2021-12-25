@@ -36,7 +36,7 @@ module.exports={
                     }
                 }
                 if(sum>usersMoney.get(playerID)){
-                    message.send.channel(`Nguoi choi ${client.users.cache.get(playerID)} cuoc qua so du`);
+                    message.channel.send(`Nguoi choi ${client.users.cache.get(playerID)} cuoc qua so du`);
                 }else{
                     let money = Number(usersMoney.get(playerID)) + Number(playersBag.get(playerID));
                     usersMoney.set(playerID, money);
@@ -51,6 +51,13 @@ module.exports={
         }else if(status ===false){
             message.channel.send('Vui long bat dau tro choi!');
             return;
+        }else if(args[0] ==='get'){
+            if(Number(usersMoney.get(userID))===0){
+                let money = Number(usersMoney.get(playerID)) + 2004;
+                usersMoney.set(playerID, money);
+            }else{
+                message.channel.send("Ban van con tien ma :))");
+            }
         }
         if(!/[0-9]/g.test(args[0])) return message.channel.send('Invalid command');
         if(!usersMoney.get(userID)) usersMoney.set(userID, 0);
