@@ -23,23 +23,25 @@ module.exports={
             moneyBox.forEach(function(value, key, map){
                 let playerID = key;
                 let betBox = value.split(' ');
+                let sum = 0;
                 playersBag.set(playerID, 0);
                 for(let i=0; i< betBox.length-1; i+=2){
+                    sum += Number(betBox[i+1]);
                     if(result.includes(betBox[i])){
                         let newMoney = Number(playersBag.get(playerID)) + Number(betBox[i+1]);
                         playersBag.set(playerID, newMoney);
                     }else{
                         let newMoney = Number(playersBag.get(playerID)) - Number(betBox[i+1]);
-                        if(newMoney<0){
-                            playersBag.set(playerID, 0);
-                        }else{
-                            playersBag.set(playerID, newMoney);
-                        }
+                        playersBag.set(playerID, newMoney);
                     }
                 }
-                let money = Number(usersMoney.get(playerID)) + Number(playersBag.get(playerID));
-                usersMoney.set(playerID, money);
-                message.channel.send(`Nguoi choi ${client.users.cache.get(playerID)} nhan them: ${playersBag.get(playerID)} \n Tong so du: ${usersMoney.get(playerID)}`);
+                if(sum>usersMoney.get(playerID)){
+                    message.send.channel(`Nguoi choi ${client.users.cache.get(playerID)} cuoc qua so du`);
+                }else{
+                    let money = Number(usersMoney.get(playerID)) + Number(playersBag.get(playerID));
+                    usersMoney.set(playerID, money);
+                    message.channel.send(`Nguoi choi ${client.users.cache.get(playerID)} nhan them: ${playersBag.get(playerID)} \n Tong so du: ${usersMoney.get(playerID)}`);
+                }
             });
             moneyBox = new Map();
             return;
