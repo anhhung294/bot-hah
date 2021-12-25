@@ -1,5 +1,6 @@
 quote: [prefix]quote
 bau cua:
+$$ phai start game truoc khi choi va ket thuc cuoc phai co lenh end thi bot moi bat dau tinh tien.
 -start game: [prefix]bc start
 -bet: [prefix]bc {tien cuoc} {linh vat}
 + cac loai linh vat: bau-cua-ca-ga-tom-nai
