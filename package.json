@@ -9,13 +9,16 @@
   "author": "AnhHung",
   "license": "ISC",
   "dependencies": {
-    "discord.js": "^13.3.1",
-    "discord.js-12": "^1.0.2",
-    "dotenv": "^10.0.0",
-    "google-search-results-nodejs": "^2.0.1",
-    "node": "^17.3.0",
-    "nodemon": "^2.0.16",
-    "puppeteer": "^13.0.0"
+    "@discordjs/builders": "^0.12.0",
+    "@discordjs/rest": "^0.3.0",
+    "discord-api-types": "^0.26.1",
+    "discord.js": "^13.6.0",
+    "dotenv": "^14.3.2",
+    "edit-json-file": "^1.7.0",
+    "fast-average-color": "^7.1.0",
+    "fast-average-color-node": "^2.1.0",
+    "mongoose": "^6.2.2",
+    "save": "^2.4.0"
   },
   "repository": {
     "type": "git",
